@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | About us {% endblock %}
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About Oregon Business Sales LLC</h1>
+          <p class="lead"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We can help you sell your business.</h2>
+          <p class="lead"></p>
+          <img src="{% static 'img/sm_biz.jpg' %}" alt="small business picture" style="width:600px;height:300px;">
+          <p class="mt-4 pb-3">Oregon Business Sales LLC, is licensed commercial real estate firm located in Portland, OR.  We specialize in selling small businesses, similar to gas stations, convenience stores, quick service restaurants, cafes and sub shops.    If you are looking to buy, sell or expand your business, then give us call to find out how we can help.</p>
+<p class=" pb-3">No matter whether you are buying or selling, we offer you the personal attention and guide you step-by-step to help you achieve your desired results.</p>
+        <p class="pb-3">We utilize the latest technology and make sure the buying or selling processes are straightforward and worry free for all of our clients.</p></div>
+
+
+
+        <div class="col-md-4">
+           {% if mvp_realtors %}
+          {% for realtor in mvp_realtors %}
+            <div class="card">
+            <img class="card-img-top" src="{{ realtor.photo.url }}" alt="Seller of the month">
+            <div class="card-body">
+              <h5 class="card-title">Seller Of The Month</h5>
+              <h6 class="text-secondary">{{ realtor.name }}</h6>
+              <p class="card-text">{{ realtor.description }}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+          {% else %}
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Search our business database.</h4>
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Current Listings</a>
+  </section>
+
+<section id="team-section" class="py-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4" style="vertical-align:bottom">
+
+                <img src="{% static 'img/img_headshot1.jpg' %}" alt="Business for Sale" id="images">
+            </div>
+            <div class="col-md-7">
+                <h3>About Me</h3>
+                </br>
+                <p class="pb-3">Gurpreet Singh has been involved in running businesses since his teenage years.  With a background in finance and accounting, Gurpreet received his Real Estate license in 2007 and, for almost 6 years, worked at Fresno Income Properties selling multifamily apartments and small businesses under the supervision of Paul Gestic.  While working at Fresno Income Properties, Paul and Gurpreet started a Property Management company, which has become one of the best property management company in Central Valley.</p>
+
+<p class="pb-3">In 2013 Gurpreet moved to Portland, OR and purchasing several small businesses.  He successfully ran those businesses until 2018 - subsequently gaining all-around experience running Quick Service Restaurants, (Subways, Sandwich shops, etc), Convenience Stores / Gas Station, Hotels and Motels.</p>
+
+<p class="pb-3">Gurpreet sold these assets in 2018 to start Oregon Business Sales LLC, which specializes in selling and acquisitions of Gas Stations, Quick Service Restaurants, Pizza shops, Liquor Stores Bars.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Team -->
+  <!--<section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">About Me</h2>
+      <div class="row text-center">
+        {% if realtors %}
+        {% for realtor in realtors %}
+        <div class="col-md-4">
+          <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
+          <h4>{{ realtor.name}}</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+          <p>No Realtors Available</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>-->
+{% endblock %}
